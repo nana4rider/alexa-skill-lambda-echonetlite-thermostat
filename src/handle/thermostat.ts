@@ -132,7 +132,6 @@ export async function handleSetTargetTemperature(request: any) {
     };
 
     await client.updateProperties(endpointId, updateProperties);
-    await client.reloadProperties(endpointId, 'targetTemperature');
     properties = Object.assign(properties, updateProperties);
   }
 
@@ -198,7 +197,6 @@ export async function handleAdjustTargetTemperature(request: any) {
   };
 
   await client.updateProperties(endpointId, updateProperties);
-  await client.reloadProperties(endpointId, 'targetTemperature');
   properties = Object.assign(properties, updateProperties);
 
   return {
@@ -251,9 +249,6 @@ export async function handleSetThermostatMode(request: any) {
       };
 
   await client.updateProperties(endpointId, updateProperties);
-  if (operationMode) {
-    await client.reloadProperties(endpointId, 'operationMode');
-  }
   properties = Object.assign(properties, updateProperties);
 
   return {

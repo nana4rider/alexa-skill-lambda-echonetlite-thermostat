@@ -38,19 +38,6 @@ class ApiClient {
   ): Promise<void> {
     await this.client.put(`/devices/${id}/properties`, properties);
   }
-
-  async reloadProperties(
-    id: string,
-    ...propertyNames: [DevicePropertyName, ...DevicePropertyName[]]
-  ): Promise<void> {
-    for (const name of propertyNames) {
-      await this.wait(1000);
-      await this.client.put(`/devices/${id}/properties/${name}/request`, {});
-    }
-  }
-
-  private wait = (t: number) =>
-    new Promise((resolve) => setTimeout(resolve, t));
 }
 
 type DeviceId = string;
