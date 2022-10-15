@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    "dist/**/*": true,
+    "node_modules/**/*": true,
+  },
+  "files.autoGuessEncoding": true,
+  "typescript.validate.enable": true,
+  "eslint.debug": false,
+  "editor.codeActionsOnSave": [
+    "source.organizeImports",
+    "source.fixAll.eslint",
+  ],
+  "eslint.validate": [
+    "typescript"
+  ],
+  "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "todo.embedded.exclude": [
+    "./dist/**/*",
+    "node_modules/**/*",
+    ".git/**/*"
+  ],
+  "typescript.preferences.importModuleSpecifier": "relative"
+}
