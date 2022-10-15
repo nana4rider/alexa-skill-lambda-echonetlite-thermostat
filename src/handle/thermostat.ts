@@ -111,8 +111,12 @@ export async function handleSetTargetTemperature(request: any) {
     targetSetpoint >= baseWindTemp + 1 &&
     targetSetpoint <= baseWindTemp + 8
   ) {
-    const airFlowLevel = targetSetpoint - baseWindTemp + 1;
-    await client.updateProperties(endpointId, { airFlowLevel });
+    const airFlowLevel = { 1: 2, 2: 3, 3: 4, 4: 6 }[
+      targetSetpoint - baseWindTemp
+    ];
+    if (airFlowLevel) {
+      await client.updateProperties(endpointId, { airFlowLevel });
+    }
   } else {
     let minTemperature = 0;
     let maxTemperature = 50;
