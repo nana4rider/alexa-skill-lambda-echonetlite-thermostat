@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 
 export class AlexaError extends Error {
-  constructor(public type: string) {
+  constructor(public type = 'INTERNAL_ERROR') {
     super(type);
   }
 }

@@ -12,14 +12,15 @@ export async function handleDiscover(request: any): Promise<any> {
   const endpoints = [];
   const client = getApiClient();
   const deviceIds = await client.getDeviceIds();
+  const manufacturerName = 'ECHONET Lite Client';
 
   for (const id of deviceIds) {
     endpoints.push({
       // https://developer.amazon.com/ja-JP/docs/alexa/device-apis/alexa-thermostatcontroller.html
       endpointId: id,
-      manufacturerName: 'ECHONET Lite Client',
-      friendlyName: `ECHONET Lite ${ApiClient.DEVICE_TYPE}`,
-      description: id,
+      manufacturerName,
+      friendlyName: id,
+      description: `ECHONET Lite ${ApiClient.DEVICE_TYPE} ${id}`,
       displayCategories: ['THERMOSTAT', 'TEMPERATURE_SENSOR'],
       capabilities: [
         // エアコン
@@ -79,6 +80,23 @@ export async function handleDiscover(request: any): Promise<any> {
           type: 'AlexaInterface',
           interface: 'Alexa',
           version: '3',
+        },
+      ],
+    });
+
+    // 自動ON
+    endpoints.push({
+      endpointId: `${id}@AutoJudge`,
+      manufacturerName: manufacturerName,
+      friendlyName: `${id}@AutoJudge`,
+      description: `ECHONET Lite ${ApiClient.DEVICE_TYPE} ${id}@AutoJudge`,
+      displayCategories: ['SCENE_TRIGGER'],
+      capabilities: [
+        {
+          type: 'AlexaInterface',
+          interface: 'Alexa.SceneController',
+          version: '3',
+          supportsDeactivation: true,
         },
       ],
     });
