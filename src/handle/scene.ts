@@ -123,7 +123,7 @@ export async function handleAutoJudgeActivate(endpointId: string) {
     (now >= heating1From && now <= heating1To) ||
     (now >= heating2From && now <= heating2To)
   ) {
-    if (properties.roomTemperature < 20) {
+    if (properties.roomTemperature <= 17) {
       operationMode = 'heating';
       changeTemperature =
         properties.targetTemperature >= TEMPERATURE_COOL_THRESHOLD;
