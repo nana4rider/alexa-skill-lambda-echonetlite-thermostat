@@ -109,7 +109,7 @@ export async function handleAutoJudgeActivate(endpointId: string) {
   const coolingFrom = DateTime.local(now.year, 6, 16);
   const coolingTo = DateTime.local(now.year, 9, 15);
   const heating1From = DateTime.local(now.year, 1, 1);
-  const heating1To = DateTime.local(now.year, 3, 31);
+  const heating1To = DateTime.local(now.year, 3, 15);
   const heating2From = DateTime.local(now.year, 11, 1);
   const heating2To = DateTime.local(now.year, 12, 31);
 
