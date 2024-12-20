@@ -50,8 +50,6 @@ type OperationMode =
   | 'circulation'
   | 'other';
 
-type DevicePropertyName = keyof DeviceProperties;
-
 interface DeviceProperties {
   id: DeviceId;
   operationStatus: boolean;

@@ -6,7 +6,7 @@ import {
   handleAdjustTargetTemperature,
   handlePower,
   handleSetTargetTemperature,
-  handleSetThermostatMode,
+  handleSetThermostatMode
 } from './handle/thermostat';
 
 luxon.Settings.defaultLocale = 'ja';
@@ -27,13 +27,13 @@ exports.handler = async (request: any) => {
       directiveName === 'Discover'
     ) {
       // 機器登録
-      response = await handleDiscover(request);
+      response = await handleDiscover();
     } else if (
       directiveNamespace === 'Alexa.Authorization' &&
       directiveName === 'AcceptGrant'
     ) {
       // 認証
-      response = await handleAcceptGrant(request);
+      response = await handleAcceptGrant();
     } else if (
       directiveNamespace == 'Alexa' &&
       directiveName == 'ReportState'

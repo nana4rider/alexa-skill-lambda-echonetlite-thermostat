@@ -21,10 +21,9 @@ export function getApiClient() {
 /**
  * 認証
  *
- * @param request
  * @returns
  */
-export async function handleAcceptGrant(request: any) {
+export async function handleAcceptGrant() {
   return {
     event: {
       header: {

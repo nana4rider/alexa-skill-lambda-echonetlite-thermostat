@@ -7,7 +7,10 @@ export class AlexaError extends Error {
 }
 
 export class TemperatureError extends AlexaError {
-  constructor(public minTemperature: number, public maxTemperature: number) {
+  constructor(
+    public minTemperature: number,
+    public maxTemperature: number,
+  ) {
     super('TEMPERATURE_VALUE_OUT_OF_RANGE');
   }
 }

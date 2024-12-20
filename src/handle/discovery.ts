@@ -5,10 +5,9 @@ import { getApiClient } from './common';
 /**
  * 機器登録
  *
- * @param request
  * @returns
  */
-export async function handleDiscover(request: any): Promise<any> {
+export async function handleDiscover(): Promise<any> {
   const endpoints = [];
   const client = getApiClient();
   const deviceIds = await client.getDeviceIds();

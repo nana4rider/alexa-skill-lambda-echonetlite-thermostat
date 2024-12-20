@@ -1,6 +1,6 @@
 {
   "name": "alexa-skill-lambda-echonetlite-thermostat",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "files": [
     "dist/**/*.js"
@@ -18,19 +18,19 @@
     "uuid"
   ],
   "devDependencies": {
-    "@types/node": "^16.7.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.2",
-    "@typescript-eslint/parser": "^4.29.2",
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22",
     "aws-sdk": "^2.978.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.14.0",
     "npm-pack-zip": "^1.2.9",
-    "prettier": "^2.7.1",
-    "typescript": "^4.1.5"
+    "prettier": "^3.4.2",
+    "typescript": "^5",
+    "typescript-eslint": "^8.18.1"
   },
   "scripts": {
-    "lint": "eslint \"src/**/*.ts\" --fix",
+    "lint": "eslint \"src/**/*.ts\" --fix && prettier --write '**/*.ts'",
     "build": "npx tsc",
     "archive": "npm-pack-zip",
     "set-handler": "aws lambda update-function-configuration --function-name $npm_package_name --handler dist/index.handler",
