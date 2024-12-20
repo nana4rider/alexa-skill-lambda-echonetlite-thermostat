@@ -3,10 +3,6 @@ import { handleAcceptGrant, handleReportState } from './handle/common';
 import { handleDiscover } from './handle/discovery';
 import { handleError } from './handle/error';
 import {
-  handleChildSceneActivate,
-  handleChildSceneDeactivate,
-} from './handle/scene';
-import {
   handleAdjustTargetTemperature,
   handlePower,
   handleSetTargetTemperature,
@@ -74,18 +70,6 @@ exports.handler = async (request: any) => {
     ) {
       // モード指定
       response = await handleSetThermostatMode(request);
-    } else if (
-      directiveNamespace === 'Alexa.SceneController' &&
-      directiveName === 'Activate'
-    ) {
-      // シーン有効(child)
-      response = await handleChildSceneActivate(request);
-    } else if (
-      directiveNamespace === 'Alexa.SceneController' &&
-      directiveName === 'Deactivate'
-    ) {
-      // シーン無効(child)
-      response = await handleChildSceneDeactivate(request);
     } else {
       throw new Error(
         `namespace: ${directiveNamespace}, name: ${directiveName}`,

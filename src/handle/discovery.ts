@@ -83,23 +83,6 @@ export async function handleDiscover(request: any): Promise<any> {
         },
       ],
     });
-
-    // 自動ON
-    endpoints.push({
-      endpointId: `${id}@AutoJudge`,
-      manufacturerName: manufacturerName,
-      friendlyName: `${id}@AutoJudge`,
-      description: `ECHONET Lite ${ApiClient.DEVICE_TYPE} ${id}@AutoJudge`,
-      displayCategories: ['SCENE_TRIGGER'],
-      capabilities: [
-        {
-          type: 'AlexaInterface',
-          interface: 'Alexa.SceneController',
-          version: '3',
-          supportsDeactivation: true,
-        },
-      ],
-    });
   }
 
   return {
